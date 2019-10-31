@@ -2,6 +2,8 @@ var key = "934de2453cafc9debca1f95622956ecd"
 
 var currentDate= Date();
 
+var recentCity = $("#history-column")
+
 var currentWeatherQueryURL = "https://api.openweathermap.org/data/2.5/weather?&appid=" + key + "&units=imperial";
 
 var currentUviQueryURL= "https://api.openweathermap.org/data/2.5/uvi?&appid="+key
@@ -30,6 +32,10 @@ $(".button").click(function(event){
 function runCity(city){
 
     console.log(city)
+
+    localStorage.setItem("city", city)
+    recentCity.append(JSON.stringify(localStorage.getItem("city")))
+    console.log(localStorage)
 
     $.ajax({
         url: currentWeatherQueryURL + "&q="+ city,
@@ -62,11 +68,16 @@ function runCity(city){
          })
         //  $("#current-temperature").text(" "+response.main.temp)
 
+
+
+
     })
 }
 
 
 function forecast(city){
+    $("#forecast-row").empty();
+
     $.ajax({
         url: forecastWeatherQueryURL+ "&q="+ city,
         method: "GET"
