@@ -1,5 +1,6 @@
 var key = "934de2453cafc9debca1f95622956ecd"
 
+var currentDate= Date();
 
 var currentWeatherQueryURL = "https://api.openweathermap.org/data/2.5/weather?&appid=" + key + "&units=imperial";
 
@@ -18,6 +19,8 @@ $(".button").click(function(event){
     runCity(cityName);
 
     forecast(cityName);
+
+   
 
 })
 
@@ -40,6 +43,12 @@ function runCity(city){
          $("#current-humidity").text(" "+response.main.humidity)
 
          $("#current-windspeed").text(" "+response.wind.speed)
+
+         console.log(currentDate)
+
+         $("#city").text(response.name+"("+currentDate+")")
+
+        
 
          $.ajax({
 
