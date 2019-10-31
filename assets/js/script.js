@@ -22,6 +22,8 @@ $(".button").click(function(event){
 
     forecast(cityName);
 
+    // saveCity();
+
    
 
 })
@@ -34,7 +36,7 @@ function runCity(city){
     console.log(city)
 
     localStorage.setItem("city", city)
-    recentCity.append(JSON.stringify(localStorage.getItem("city")))
+    recentCity.append("<li>"+JSON.stringify(localStorage.getItem("city")+"</li>"))
     console.log(localStorage)
 
     $.ajax({
@@ -73,6 +75,14 @@ function runCity(city){
 
     })
 }
+
+// function saveCity(){
+
+//     if(localStorage.getItem("city")){
+//         $("#history-column").append(localStorage.getItem("city"))
+
+//     }
+// }
 
 
 function forecast(city){
