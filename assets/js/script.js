@@ -1,7 +1,9 @@
 var key = "934de2453cafc9debca1f95622956ecd"
 
 
-var queryURL = "https://api.openweathermap.org/data/2.5/weather?&appid=" + key + "&units=imperial";
+var currentWeatherQueryURL = "https://api.openweathermap.org/data/2.5/weather?&appid=" + key + "&units=imperial";
+
+var currentUviQueryURL= "https://api.openweathermap.org/data/2.5/uvi?&appid="+key
 
 
 
@@ -15,7 +17,7 @@ $(".button").click(function(event){
     console.log(cityName)
 
     $.ajax({
-        url: queryURL + "&q="+ cityName,
+        url: currentWeatherQueryURL + "&q="+ cityName,
         method: "GET"
 
     }).then(function(response){
@@ -26,6 +28,18 @@ $(".button").click(function(event){
          $("#current-humidity").text(" "+response.main.humidity)
 
          $("#current-windspeed").text(" "+response.wind.speed)
+
+
+         $.ajax({
+
+            url: currentUviQueryURL+"&lat="+response.coord.lat+"&lon="+response.coord.lon,
+            method: "GET"
+         }).then(function(response){
+
+            console.log(response.value)
+            $("#current-uvi").text(" "+response.value)
+
+         })
 
         //  $("#current-temperature").text(" "+response.main.temp)
 
