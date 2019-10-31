@@ -1,7 +1,7 @@
 var key = "934de2453cafc9debca1f95622956ecd"
 
 
-var queryURL = "https://api.openweathermap.org/data/2.5/weather?&appid=" + key;
+var queryURL = "https://api.openweathermap.org/data/2.5/weather?&appid=" + key + "&units=imperial";
 
 
 
