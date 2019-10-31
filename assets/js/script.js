@@ -64,16 +64,9 @@ function forecast(city){
     }).then(function(response){
 
         for (let i = 0; i < 5; i++) {
-            $("#forecast-column").append("<div class='card'> <div class='card-body'> <h5 class='card-title'>"+response.list[8*i].dt_txt  +"</h5> temperature: "+ response.list[8*i].main.temp+
+            $("#forecast-row").append("<div class='col card'> <div class='card-body'> <h5 class='card-title'>"+response.list[8*i].dt_txt  +"</h5> temp: "+ response.list[8*i].main.temp+
             "<br> humidity: " + response.list[8*i].main.humidity +
-            "<br> wind speed: "+ response.list[8*i].wind.speed+"</div></div>")
-
-
-            
+            "<br> windspeed: "+ response.list[8*i].wind.speed+"</div></div>")
         }
-
-
-
-
     })
 }
