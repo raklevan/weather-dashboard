@@ -1,0 +1,67 @@
+.card{
+
+    padding:0px;
+}
+
+.card-body{
+
+    padding:8px;
+}
+
+#current-conditions-row{
+
+    font-size: 30px;
+    background-color:rgb(238, 234, 217);
+    border: solid;
+    border-color: rgb(216, 228, 203);
+ 
+}
+
+
+.jumbotron{
+
+
+
+    text-align: center;
+
+    background-image: url("clouds2.jpeg");
+    opacity: 0.9;
+    border: solid;
+    border-color: rgb(111, 120, 123);
+
+}
+
+
+.results{
+   
+   
+}
+
+/* #forecast-row{
+
+    /* background-color:blue; */
+} */
+
+.results::after {
+    background-color: rgb(79, 137, 159);
+    opacity:1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -3; 
+}
+
+body::after {
+    content: "";
+    background-image: url("images.jpeg");
+    background-size: cover;
+    opacity: 0.2;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
+  }
